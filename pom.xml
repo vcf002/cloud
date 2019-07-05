@@ -102,5 +102,6 @@
     	<module>provider_9001</module>
     	<module>provider_9002</module>
     	<module>zuul_4001</module>
+    	<module>config_3001</module>
     </modules>
 </project>
