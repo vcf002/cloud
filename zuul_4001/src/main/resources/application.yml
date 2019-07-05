@@ -1,0 +1,36 @@
+server:
+  port: 4001
+    
+spring:
+   application:
+      name: zuul
+      
+eureka:
+   instance:
+      instance-id: zuul:4001
+      prefer-ip-address: true
+   client:
+      serviceUrl:
+         # defaultZone: http://localhost:5001/eureka/
+         defaultZone: http://eureka5001.com:5001/eureka/,http://eureka5002.com:5002/eureka/,http://eureka5003.com:5003/eureka/
+      register-with-eureka: true
+      fetch-registry: true
+
+zuul:
+   ignored-services: "*"   # 禁止使用真实的路径，如不能使用CONSUMER或者PROVIDE
+   prefix: /pre # 路径前必须加上前缀，否则无法访问如：http://192.168.0.101:4001/pre/api-b/findDept/0
+   routes:
+      CONSUMER:
+         path: /api-a/**
+         serviceId: CONSUMER
+      PROVIDE:
+         path: /api-b/**
+         serviceId: PROVIDE
+
+info:
+   app.name: wzcloud
+   company.name: www.wzcloud.com
+   build.artifactId: $project.artifactId$
+   build.version: $project.version$
+
+

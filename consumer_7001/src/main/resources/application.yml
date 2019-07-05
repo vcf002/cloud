@@ -1,0 +1,23 @@
+server:
+  port: 7001
+    
+spring:
+   application:
+     name: consumer7001
+      
+eureka:
+   instance:
+      instance-id: consumer:7001
+      prefer-ip-address: true
+   client:
+      serviceUrl:
+         # defaultZone: http://localhost:5001/eureka/
+         defaultZone: http://eureka5001.com:5001/eureka/,http://eureka5002.com:5002/eureka/,http://eureka5003.com:5003/eureka/
+      register-with-eureka: true
+      fetch-registry: true
+
+info:
+   app.name: wzcloud
+   company.name: www.wzcloud.com
+   build.artifactId: $project.artifactId$
+   build.version: $project.version$

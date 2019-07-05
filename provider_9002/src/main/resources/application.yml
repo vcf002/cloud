@@ -1,0 +1,43 @@
+server:
+  port: 9002
+  
+mybatis:
+   config-location: classpath:mybatis/mybatis.cfg.xml        # mybatis配置文件所在路径
+   type-aliases-package: com.wz.api.bean                     # 所有bean所在包
+   mapper-locations:
+   - classpath:mybatis/mapper/**/*.xml                       # mapper映射文件
+    
+spring:
+   application:
+      name: provide
+   datasource:
+      type: com.alibaba.druid.pool.DruidDataSource            # 当前数据源操作类型
+      driver-class-name: org.gjt.mm.mysql.Driver              # mysql驱动包
+      url: jdbc:mysql://192.168.206.130:3306/provider2              # 数据库名称
+      username: root
+      password: mima002
+      filters: stat,wall,log4j   # druid的监控功能
+      dbcp2:
+         min-idle: 5                                           # 数据库连接池的最小维持连接数
+         initial-size: 5                                       # 初始化连接数
+         max-total: 5                                          # 最大连接数
+         max-wait-millis: 200                                  # 等待连接获取的最大超时时间
+      
+eureka:
+   instance:
+      instance-id: provider:9002
+      prefer-ip-address: true
+   client:
+      serviceUrl:
+         # defaultZone: http://localhost:5001/eureka/
+         defaultZone: http://eureka5001.com:5001/eureka/,http://eureka5002.com:5002/eureka/,http://eureka5003.com:5003/eureka/
+      register-with-eureka: true
+      fetch-registry: true
+
+info:
+   app.name: wzcloud
+   company.name: www.wzcloud.com
+   build.artifactId: $project.artifactId$
+   build.version: $project.version$
+
+

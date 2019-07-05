@@ -1,0 +1,27 @@
+server:
+  port: 5001
+
+eureka:
+  instance:
+    # hostname: 127.0.0.1
+    hostname: eureka5001.com
+  client:
+    serviceUrl:
+      # defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone: http://eureka5002.com:5002/eureka/,http://eureka5003.com:5003/eureka/
+    register-with-eureka: false
+    fetch-registry: false
+
+info:
+   app.name: wzcloud
+   company.name: www.wzcloud.com
+   build.artifactId: $project.artifactId$
+   build.version: $project.version$
+
+
+
+
+
+
+
+
