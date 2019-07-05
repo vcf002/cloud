@@ -12,7 +12,7 @@ public class MySelfRule {
     
     @Bean
     public IRule myRule() {
-        RoundRobinRule r;
+        RoundRobinRule rr;
         return new RandomRule();
     }
     
