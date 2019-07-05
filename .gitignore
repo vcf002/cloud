@@ -1,0 +1,15 @@
+/.project
+/.settings/
+/api/
+/consumer_7001/
+/consumer_7002_feign/
+/consumer_7003_hystrixDashboard/
+/eureka_5001/
+/eureka_5002/
+/eureka_5003/
+/provider_8001/
+/provider_8002/
+/provider_8003/
+/provider_9001/
+/provider_9002/
+/zuul_4001/
